@@ -31,9 +31,25 @@
     </head>
     <body>
         <?php require "../header/header.php"; ?>
-
+        
          <a href="../add_todo/add_todo_view.php">Add Task</a>
 
+        <?php  
+            if (isset($_SESSION['edit_todo_user_id']))
+            {
+                if (isset($_GET['admingetuser']))
+                {
+                    $_SESSION['edit_todo_user_id'] = $_GET['admingetuser'];
+                }
+                echo "<br><a href='../admin/admin_view.php'>Back to Admin</a><br>";
+                echo "<br>USER ".$_SESSION['edit_todo_user_id'];
+                $result = getUserTodo($_SESSION['edit_todo_user_id']);
+            }
+            else
+            {
+                $result = getUserTodo($_SESSION['user_id']);
+            }
+        ?>
         <table>
             <tr>
                 <th>Task Title</th>
@@ -42,22 +58,7 @@
                 <th>Action</th>
             </tr>
 
-            <?php  
-                if ($_SESSION['user_role_id'] == 100)
-                {
-                    if(!(isset($_SESSION['edit_todo_user_id'])))
-                    {
-                        $_SESSION['edit_todo_user_id'] = $_GET['admingetuser'];
-                    }
-                    
-                    $result = getUserTodo($_SESSION['edit_todo_user_id']); 
-                }
-                else
-                {
-                    $result = getUserTodo(); 
-                    $userid = $_SESSION['user_id'];
-                }
-    
+            <?php 
                 while ($row = $result->fetch_assoc())
                 {
             ?>
@@ -65,7 +66,7 @@
             <tr>
                 <th>
                     
-                    <a href="../edit_todo/edit_todo_view.php?todoid=<?php echo $row['todo_id']; ?>&userid=<?php echo $_SESSION['edit_todo_user_id']; ?>"> 
+                    <a href="../edit_todo/edit_todo_view.php?todoid=<?php echo $row['todo_id']; ?>"> 
                     <?php 
                         echo $row['todo_title']; 
                     ?> 

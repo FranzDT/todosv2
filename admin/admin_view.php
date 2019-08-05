@@ -1,5 +1,7 @@
 <?php  
     require "../function/function.php";
+
+    $_SESSION['edit_todo_user_id'] = 0;
 ?>
 <html>
     <head>
@@ -27,7 +29,7 @@
                 ?>
                         <tr>
                             <th>
-                                <a href="../edit_user/edit_user_view.php?userid=<?php echo $row['user_id'] ?>">
+                                <a href="../edit_user/edit_user_view.php?userid=<?php echo $row['user_id']; ?>">
                                     <?php echo $row['user_id']; ?>
                                 </a>
                             </th>
@@ -36,7 +38,7 @@
                             <th><?php echo $row['username'] ?></th>
                             <th><?php echo $row['last_signin'] ?></th>
                             <th>
-                                <a href="../user/user_view.php?admingetuser=<?php echo $row['user_id']; ?>">Todo</a>
+                                <a href="../user/user_view.php?admingetuser=<?php echo $row['user_id']; ?>">Todo</a> 
                                 <a href="../">Delete</a>
                             </th>
                         </tr>

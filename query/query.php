@@ -10,6 +10,7 @@
 
         function userRegQuery($first_name, $last_name, $username, $password, $role)
         {
+                
                 $sql = "INSERT INTO users(first_name, last_name, username, password, user_role_id, date_created)
                         VALUES ('$first_name'
                         , '$last_name'

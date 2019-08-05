@@ -4,7 +4,7 @@
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $username = $_POST['username'];
-    $role = $_POST['role'] ?? 200;
+    $role = 200;
     $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
 
     if(checkUser($username) === true)

@@ -14,8 +14,8 @@
     </head>
     <body>
         <form action="./edit_todo_process.php" method="POST">
-            Title: <input type="text" name="todo_title" placeholder="<?php echo $title; ?>"> <br>
-            Description: <input type="text" name="todo_desc" placeholder="<?php echo $desc; ?>"> <br>
+            Title: <input type="text" name="todo_title" placeholder="<?php echo $title; ?>" value="<?php echo $title; ?>"> <br>
+            Description: <input type="text" name="todo_desc" placeholder="<?php echo $desc; ?>" value="<?php echo $desc; ?>"> <br>
             <input type="hidden" name="todo_id" value="<?php echo $id; ?>">
             <input type="hidden" name="user_id" value="<?php echo $_GET['user_id'] ?>">
             <input type="submit" value="Update">

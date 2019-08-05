@@ -2,7 +2,7 @@
     $servername= "localhost";
     $username= "root";
     $password= "";
-    $db = "todo";
+    $db = "todov2";
     $conn = new mysqli($servername, $username, $password, $db);
 
     if ($conn->connect_error)

@@ -72,7 +72,7 @@
 
     function addTodo($user_id, $todo_title, $todo_desc){
         $sql = addTodoQuery($user_id, $todo_title, $todo_desc);
-        
+        // die($sql);
         if ($GLOBALS['conn']->query($sql) === true)
         {
             return true;
@@ -86,6 +86,7 @@
     function getUserTodo($user_id)
     {
         $sql = getUserTodoQuery($user_id);
+        // die($sql);
         $result = $GLOBALS['conn']->query($sql);
         return $result;
     }
