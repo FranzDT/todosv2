@@ -1,5 +1,6 @@
 <?php
     require "../function/function.php";
+     
     
     $checkuser = $_POST['uname']??"";
     $password = $_POST['password'] ?? "";
