@@ -135,9 +135,11 @@
             return false;
         }
     }
-    function deleteUser($user_id)
-    {
-        $sql = deleteUserQuery($user_id);
+    function deleteUser($id)
+    {   
+        $deletetodo = "DELETE FROM todo WHERE user_id = $id";
+        $GLOBALS['conn']->query($deletetodo);
+        $sql = deleteUserQuery($id);
         if ($GLOBALS['conn']->query($sql)=== true)
         {
             return true;

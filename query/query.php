@@ -87,9 +87,9 @@
                         WHERE user_id = $user_id";
                 return $sql;
         }
-        function deleteUserQuery($user_id)
+        function deleteUserQuery($id)
         {
-                $sql = "DELETE FROM users WHERE user_id = $user_id";
+                $sql = "DELETE FROM users WHERE user_id = $id";
                 return $sql;
         }
         function deleteTodoQuery($todo_id)
