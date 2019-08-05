@@ -39,7 +39,7 @@
                             <th><?php echo $row['last_signin'] ?></th>
                             <th>
                                 <a href="../user/user_view.php?admingetuser=<?php echo $row['user_id']; ?>">Todo</a> 
-                                <a href="../">Delete</a>
+                                <a href="../delete/delete_user.php?id=<?php echo $row['user_id'] ?>">Delete</a>
                             </th>
                         </tr>
                 <?php

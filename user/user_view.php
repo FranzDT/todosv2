@@ -24,6 +24,18 @@
             echo "failed to update todo";
         }
     }
+
+    if (isset($_GET['deletetodo']))
+    {
+        if ($_GET['deletetodo'] == 'yes')
+        {
+            echo "Todo deletion successful";
+        }
+        else
+        {
+            echo "failed to delete todo";
+        }
+    }
 ?>
 <html>
     <head>
@@ -79,7 +91,7 @@
                     <?php echo $row['todo_status'] ?>
                 </th>
                 <th>
-                    <a href="../delete_todo/delete_todo_view.php?todoid=<?php echo $row['todo_id'] ?>">Delete</a>
+                    <a href="../delete/delete_todo.php?todoid=<?php echo $row['todo_id'] ?>">Delete</a>
                 </th>
             </tr>
 

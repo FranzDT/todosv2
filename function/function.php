@@ -72,7 +72,6 @@
 
     function addTodo($user_id, $todo_title, $todo_desc){
         $sql = addTodoQuery($user_id, $todo_title, $todo_desc);
-        // die($sql);
         if ($GLOBALS['conn']->query($sql) === true)
         {
             return true;
@@ -131,6 +130,30 @@
         {
             return true;
         }
+        else
+        {
+            return false;
+        }
+    }
+    function deleteUser($user_id)
+    {
+        $sql = deleteUserQuery($user_id);
+        if ($GLOBALS['conn']->query($sql)=== true)
+        {
+            return true;
+        } 
+        else
+        {
+            return false;
+        }
+    }
+    function deleteTodo($id)
+    {
+        $sql = deleteTodoQuery($id);
+        if ($GLOBALS['conn']->query($sql)=== true)
+        {
+            return true;
+        } 
         else
         {
             return false;
