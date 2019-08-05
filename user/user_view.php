@@ -58,8 +58,6 @@
             </div>
         </nav>
         
-         <a href="../add_todo/add_todo_view.php">Add Task</a>
-
         <?php  
             if (isset($_SESSION['edit_todo_user_id']))
             {
@@ -76,42 +74,34 @@
                 $result = getUserTodo($_SESSION['user_id']);
             }
         ?>
-        <table>
-            <tr>
-                <th>Task Title</th>
-                <th>Task Description</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-
-            <?php 
-                while ($row = $result->fetch_assoc())
-                {
-            ?>
-
-            <tr>
-                <th>
-                    
-                    <a href="../edit_todo/edit_todo_view.php?todoid=<?php echo $row['todo_id']; ?>"> 
-                    <?php 
-                        echo $row['todo_title']; 
-                    ?> 
-                    </a>
-                </th>
-                <th> 
-                    <?php echo $row['todo_desc'] ?> 
-                </th>
-                <th> 
-                    <?php echo $row['todo_status'] ?>
-                </th>
-                <th>
-                    <a href="../delete/delete_todo.php?todoid=<?php echo $row['todo_id'] ?>">Delete</a>
-                </th>
-            </tr>
-
-            <?php
-                }
-            ?>
-        </table>
+    
+        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4">
+                    <a href="../add_todo/add_todo_view.php" class="btn btn-warning" role="button">&plus;</a>
+                        <?php 
+                        while ($row = $result->fetch_assoc())
+                        {
+                        ?>
+                        <div class="card bg-warning" style="width:400px">
+                                <div class="card-body">
+                                    <h2 class="card-title text-center">
+                                    <a href="../edit_todo/edit_todo_view.php?todoid=<?php echo $row['todo_id']; ?>"> <?php echo $row['todo_title']; ?></a>
+                                    </h2>
+                                    <p class="card-text text-center"><h4 class="text-center"><?php echo $row['todo_desc']; ?></h4><br></p>
+                                    <p class="card-text text-center">Status: <?php echo $row['todo_status'] ?>
+                                    <a href="../delete/delete_todo.php?todoid=<?php echo $row['todo_id'] ?>">Delete</a> </p>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    </div>
+                </div>
+            </div>
+                
     </body>
 </html>
