@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <html>
     <head>
         <title>Add Todo</title>
@@ -11,10 +14,20 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                <a class="navbar-brand" href="../index.php">Todo App</a>
+                <?php
+                    if ($_SESSION['user_role_id'] == 100)
+                    {
+                        echo "<a class='navbar-brand' href='../admin/admin_view.php'>Todo App</a>";
+                    }
+                    else
+                    {
+                        echo "<a class='navbar-brand' href='../user/user_view.php'>Todo App</a>";
+                    }
+                ?>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                 <li><a href="../index.php?logout=yes"><span class="glyphicon glyphicon-log-in"></span> Logout </a></li>
+                <li><p>Welcome, <?php echo $_SESSION['username'] ?></p></li>
                 </ul>
             </div>
         </nav>
@@ -29,7 +42,7 @@
                     <div class="form-group">
                         <label class="control-label col-md-3" for="desc">Description: </label>
                         <div class="col-md-5">
-                            <input type="text" class="form-control" name="todo_desc" placeholder="" value="">
+                            <input type="textarea" class="form-control" name="todo_desc" placeholder="" value="">
                         </div>
                     </div>
                     <div class="form-group">

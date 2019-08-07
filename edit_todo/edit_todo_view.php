@@ -21,10 +21,20 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                <a class="navbar-brand" href="../index.php">Todo App</a>
+                <?php
+                    if ($_SESSION['user_role_id'] == 100)
+                    {
+                        echo "<a class='navbar-brand' href='../admin/admin_view.php'>Todo App</a>";
+                    }
+                    else
+                    {
+                        echo "<a class='navbar-brand' href='../user/user_view.php'>Todo App</a>";
+                    }
+                ?>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                 <li><a href="../index.php?logout=yes"><span class="glyphicon glyphicon-log-in"></span> Logout </a></li>
+                <li><p>Welcome, <?php echo $_SESSION['username'] ?></p></li>
                 </ul>
             </div>
         </nav>
@@ -40,7 +50,7 @@
                 <div class="form-group">
                 <label for="desc" class="control-label col-md-3">Description:</label>
                     <div class="col-md-5">
-                        <input class="form-control" type="text" name="todo_desc" placeholder="<?php echo $desc; ?>" value="<?php echo $desc; ?>">
+                        <textarea class="form-control" name="todo_desc" cols="30" rows="10"  ><?php echo $desc; ?></textarea>
                     </div>
                 </div>
                 <input type="hidden" name="todo_id" value="<?php echo $id; ?>">

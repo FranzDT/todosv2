@@ -50,10 +50,28 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                <a class="navbar-brand" href="../index.php">Todo App</a>
+                <?php
+                    if ($_SESSION['user_role_id'] == 100)
+                    {
+                        echo "<a class='navbar-brand' href='../admin/admin_view.php'>Todo App</a>";
+                    }
+                    else
+                    {
+                        echo "<a class='navbar-brand' href='../user/user_view.php'>Todo App</a>";
+                    }
+                ?>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                <li><a href="../add_todo/add_todo_view.php"><span class="glyphicon glyphicon-plus"></span> Add Todo </a></li>
+                <?php  
+                    if ($_SESSION['user_role_id'] == 100)
+                    {
+                        echo "<li><a href='../admin/admin_view.php'><p>Welcome, ". $_SESSION['username'] ."</p></a></li>";
+                    }
+                    else
+                    {
+                        echo "<li><a href='../user/user_view.php'><p>Welcome, ". $_SESSION['username'] ."</p></a></li>";
+                    }
+                ?>
                 <li><a href="../index.php?logout=yes"><span class="glyphicon glyphicon-log-in"></span> Logout </a></li>
                 </ul>
             </div>
@@ -66,8 +84,7 @@
                 {
                     $_SESSION['edit_todo_user_id'] = $_GET['admingetuser'];
                 }
-                echo "<br><a href='../admin/admin_view.php'>Back to Admin</a><br>";
-                echo "<br>USER ".$_SESSION['edit_todo_user_id'];
+                $id = $_SESSION['edit_todo_user_id'];
                 $backlog = getUserTodoBacklog($_SESSION['edit_todo_user_id']);
                 $progress = getUserTodoProgress($_SESSION['edit_todo_user_id']);
                 $done = getUserTodoDone($_SESSION['edit_todo_user_id']);
@@ -79,9 +96,24 @@
                 $done = getUserTodoDone($_SESSION['user_id']);
             }
         ?>
-    
         </div>
             <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <h1><a href="../add_todo/add_todo_view.php">&plus;</a></h1>
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-3">
+                    <?php  
+                        if (isset($_SESSION['edit_todo_user_id']))
+                        {
+                            echo "<H4>USER: ". $id ."</H4>";
+                        }          
+                    ?>
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-3"></div>
+                </div>
                 <div class="row">
                     <div class="col-lg-3">
                         <h3>BACKLOG</h3>

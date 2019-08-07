@@ -1,10 +1,12 @@
 <?php  
     require "../function/function.php";
     $_SESSION['edit_todo_user_id'] = 0;
+    // die($_SESSION['user_role_id']);
 ?>
 <html>
     <head>
         <title>Admin</title>
+        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -15,9 +17,10 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                <a class="navbar-brand" href="../index.php">Todo App</a>
+                <a class="navbar-brand" href="#">Todo App</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
+                <li><a href="../admin/admin_view.php"><p>Welcome, <?php echo $_SESSION['username'] ?></p></a></li>
                 <li><a href="../index.php?logout=yes"><span class="glyphicon glyphicon-log-in"></span> Logout </a></li>
                 </ul>
             </div>
@@ -61,7 +64,13 @@
                             ?>
                             <th>
                                 <a href="../user/user_view.php?admingetuser=<?php echo $row['user_id']; ?>">Todo</a> 
-                                <a href="../delete/delete_user.php?id=<?php echo $row['user_id'] ?>">Delete</a>
+                                <?php
+                                    if ($row['user_role_id'] == 200){
+                                ?>
+                                        <a href="../delete/delete_user.php?id=<?php echo $row['user_id'] ?>">Delete</a>
+                                <?php
+                                    }
+                                ?>
                             </th>
                         </tr>
                 <?php

@@ -23,9 +23,19 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                <a class="navbar-brand" href="../index.php">Todo App</a>
+                <?php
+                    if ($_SESSION['user_role_id'] == 100)
+                    {
+                        echo "<a class='navbar-brand' href='../admin/admin_view.php'>Todo App</a>";
+                    }
+                    else
+                    {
+                        echo "<a class='navbar-brand' href='../user/user_view.php'>Todo App</a>";
+                    }
+                ?>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
+                <li><a href='../admin/admin_view.php'><p>Welcome, <?php echo $_SESSION['username']?></p></a></li>
                 <li><a href="../index.php?logout=yes"><span class="glyphicon glyphicon-log-in"></span> Logout </a></li>
                 </ul>
             </div>

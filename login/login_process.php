@@ -18,18 +18,16 @@
     }
     elseif (isset($_POST['password']))
     {
-        if (verifyPassword($password, $password))
+        if (verifyPassword($username, $password))
         {
             setUserDetail($username);
             setSignIn($username);
             if ($_SESSION['user_role_id'] == 200)
             {
-                setSignIn($username);
                 header("Location: ../user/user_view.php");
             }
             elseif ($_SESSION['user_role_id'] == 100)
             {
-                setSignIn($username);
                 header("Location: ../admin/admin_view.php");
             }
         }

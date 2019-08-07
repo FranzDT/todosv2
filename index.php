@@ -18,11 +18,12 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                 <a class="navbar-brand" href="#">Todo App</a>
                 </div>
+                
                 <ul class="nav navbar-nav navbar-right">
                 <li><a href="./registration/reg_view.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li><a href="./login/login_view.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

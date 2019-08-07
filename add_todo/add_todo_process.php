@@ -2,7 +2,7 @@
     require "../function/function.php";
 
     $todo_title = $_POST['todo_title'];
-    $todo_desc = $_POST['todo_desc'];
+    $todo_desc = addslashes($_POST['todo_desc']); 
     if (isset($_SESSION['edit_todo_user_id']))
     {
         $id = $_SESSION['edit_todo_user_id'];
