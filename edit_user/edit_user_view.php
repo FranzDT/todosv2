@@ -12,6 +12,11 @@
         $lastname = $row['last_name'];
         $username = $row['username'];
     }
+
+    if (isset($_GET['userused']))
+    {
+            echo "Username is already taken";
+    }
 ?>
 <html>
     <head>
@@ -65,6 +70,7 @@
                     </div>
                 </div>
                 <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+                <input type="hidden" name="uname" value="<?php echo $username; ?>">
                 <div class="form_group">
                     <div class="control-label col-md-4">
                         <button type="submit" class="btn btn-primary">Update</button>

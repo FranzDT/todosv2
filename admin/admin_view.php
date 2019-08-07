@@ -73,7 +73,7 @@
                                 }
                             ?>
                             <th>
-                                <a href="../user/user_view.php?admingetuser=<?php echo $row['user_id']; ?>">Todo</a> 
+                                <a href="../user/user_view.php?admingetuser=<?php echo $row['user_id']; ?>">Todo</a> | 
                                 <?php
                                     if ($row['user_role_id'] == 200){
                                 ?>

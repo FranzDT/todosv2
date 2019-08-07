@@ -115,14 +115,14 @@
         function setTodoProgressQuery($todo_id)
         {
                 $sql = "UPDATE todo
-                        SET todo_status = 'progress'
+                        SET todo_status = 'progress', date_completed = NULL
                         WHERE todo_id= $todo_id";
                 return $sql;
         }
         function setTodoDoneQuery($todo_id)
         {
                 $sql = "UPDATE todo
-                        SET todo_status = 'done'
+                        SET todo_status = 'done', date_completed = (SELECT CURDATE())
                         WHERE todo_id= $todo_id";
                 return $sql;
         }
