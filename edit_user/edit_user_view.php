@@ -1,5 +1,9 @@
 <?php
     require "../function/function.php";
+    if (!(isset($_SESSION['user_id'])))
+    {
+        header("Location: ../index.php");
+    }
     $user_id = $_GET['userid'];
     $result = getUserDetail($user_id);
     while ($row = $result->fetch_assoc())

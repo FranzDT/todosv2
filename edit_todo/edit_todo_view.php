@@ -7,6 +7,10 @@
         $title = $row['todo_title'];
         $desc = $row['todo_desc'];
     }
+    if (!(isset($_SESSION['user_role_id'])))
+    {
+        header("Location: ../index.php");
+    }
 ?>
 <html>
     <head>
@@ -33,8 +37,17 @@
                 ?>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
+                <?php  
+                    if ($_SESSION['user_role_id'] == 100)
+                    {
+                        echo "<li><a href='../admin/admin_view.php'><p>Welcome, ". $_SESSION['username'] ."</p></a></li>";
+                    }
+                    else
+                    {
+                        echo "<li><a href='../user/user_view.php'><p>Welcome, ". $_SESSION['username'] ."</p></a></li>";
+                    }
+                ?>
                 <li><a href="../index.php?logout=yes"><span class="glyphicon glyphicon-log-in"></span> Logout </a></li>
-                <li><p>Welcome, <?php echo $_SESSION['username'] ?></p></li>
                 </ul>
             </div>
         </nav>

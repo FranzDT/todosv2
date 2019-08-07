@@ -6,6 +6,17 @@
             echo "Username is taken <br>";
         }
     }
+    if (isset($_SESSION['user_role_id']))
+    {
+        if ($_SESSION['user_role_id'] == 100)
+        {
+            header("Location: ../admin/admin_view.php");
+        }
+        else
+        {
+            header("Location: ../user/user_view.php");
+        }
+    }
 ?>
 <html>
     <head>

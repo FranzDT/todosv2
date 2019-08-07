@@ -1,7 +1,17 @@
 <?php  
     require "../function/function.php";
     $_SESSION['edit_todo_user_id'] = 0;
-    // die($_SESSION['user_role_id']);
+    if (isset($_SESSION['user_role_id']))
+    {
+        if ($_SESSION['user_role_id'] == 200)
+        {
+            header("Location: ../user/user_view.php");
+        }
+    }
+    else
+    {
+        header("Location: ../index.php");
+    }
 ?>
 <html>
     <head>

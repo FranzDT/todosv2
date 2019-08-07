@@ -1,6 +1,11 @@
 <?php
     require "../function/function.php";
 
+    if (!(isset($_SESSION['user_role_id'])))
+    {
+        header("Location: ../index.php");
+    }
+
     if (isset($_GET['addtodo']))
     {
         if ($_GET['addtodo'] == 'success')

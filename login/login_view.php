@@ -1,5 +1,5 @@
 <?php
-  
+    
     $label = $_GET['label'] ?? "Username";
     $input_type = $_GET['input_type'] ?? "uname";
     $username = $_GET['username'] ?? "";
@@ -29,6 +29,17 @@
             }
         }else{
             echo "Not a User<br>";
+        }
+    }
+    if (isset($_SESSION['user_role_id']))
+    {
+        if ($_SESSION['user_role_id'] == 100)
+        {
+            header("Location: ../admin/admin_view.php");
+        }
+        else
+        {
+            header("Location: ../user/user_view.php");
         }
     }
 ?>
