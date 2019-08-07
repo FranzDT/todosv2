@@ -69,6 +69,8 @@
                 echo "<br><a href='../admin/admin_view.php'>Back to Admin</a><br>";
                 echo "<br>USER ".$_SESSION['edit_todo_user_id'];
                 $backlog = getUserTodoBacklog($_SESSION['edit_todo_user_id']);
+                $progress = getUserTodoProgress($_SESSION['edit_todo_user_id']);
+                $done = getUserTodoDone($_SESSION['edit_todo_user_id']);
             }
             else
             {
