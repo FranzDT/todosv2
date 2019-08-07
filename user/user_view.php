@@ -53,6 +53,7 @@
                 <a class="navbar-brand" href="../index.php">Todo App</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
+                <li><a href="../add_todo/add_todo_view.php"><span class="glyphicon glyphicon-plus"></span> Add Todo </a></li>
                 <li><a href="../index.php?logout=yes"><span class="glyphicon glyphicon-log-in"></span> Logout </a></li>
                 </ul>
             </div>
