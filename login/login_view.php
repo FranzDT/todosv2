@@ -3,26 +3,23 @@
     $label = $_GET['label'] ?? "Username";
     $input_type = $_GET['input_type'] ?? "uname";
     $username = $_GET['username'] ?? "";
-    
     $passwordcheck = $_GET['passwordcheck'] ?? 1;
-
     if (isset($_GET['username']))
     {
-        $type = "password";
-            
+        $type = "password";   
     }
     else
     {
         $type = "text";
     }
-    
+
     if (isset($_GET['usercheck']))
     {
         if ($_GET['usercheck'] > 0)
         {
             if($passwordcheck == 0)
             {
-                echo "Incorrect Password<br>";
+
                 $label = "Password";
                 $input_type = "password";
             }else
@@ -69,7 +66,31 @@
                 </form>
             
             </div>
-        </div>
-        
+        </div>   
+        <?php
+            if (isset($_GET['usercheck']))
+            {
+                if ($_GET['usercheck'] > 0)
+                {
+                    if($passwordcheck == 0)
+                    {
+        ?>
+                        <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>Invalid Password!</strong>
+                        </div>
+        <?php
+                        $label = "Password";
+                        $input_type = "password";
+                    }else
+                    {
+                        $label = "Password";
+                        $input_type = "password";
+                    }
+                }else{
+                    echo "Not a User<br>";
+                }
+            }
+        ?>
     </body>
 </html>

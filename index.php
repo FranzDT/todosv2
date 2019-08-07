@@ -1,21 +1,5 @@
 <?php
     session_start();
-
-    // User registration status
-    if (isset($_GET['userreg']))
-    {
-        if ($_GET['userreg']=='success')
-        {
-            echo 'Success';
-            unset($_GET['userreg']);
-        }
-        else
-        {
-            echo 'Failed';
-            unset($_GET['userreg']);
-        }
-    }
-
     if (isset($_GET['logout']))
     {
         if ($_GET['logout'] == 'yes')
@@ -46,15 +30,30 @@
             </div>
         </nav>
 
-        <!-- registration link -->
-        <!-- <div class="containers">    
-            <div class="row">
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col"><a href="./login/login_view.php">Sign in</a> 
-                <a href="./registration/reg_view.php">Register</a><br></div>
-            </div>
-        </div> -->
-        
+    <?php
+        if (isset($_GET['userreg']))
+        {
+            if ($_GET['userreg']=='success')
+            {
+    ?>
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Success!</strong> user registration is successful.
+                </div>
+    <?php
+                unset($_GET['userreg']);
+            }
+            else
+            {
+    ?>
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>User Registration Failed!</strong>
+                </div>
+    <?php
+                unset($_GET['userreg']);
+            }
+        }
+    ?>
     </body>
 </html>
