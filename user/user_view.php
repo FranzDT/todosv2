@@ -67,41 +67,95 @@
                 }
                 echo "<br><a href='../admin/admin_view.php'>Back to Admin</a><br>";
                 echo "<br>USER ".$_SESSION['edit_todo_user_id'];
-                $result = getUserTodo($_SESSION['edit_todo_user_id']);
+                $backlog = getUserTodoBacklog($_SESSION['edit_todo_user_id']);
             }
             else
             {
-                $result = getUserTodo($_SESSION['user_id']);
+                $backlog = getUserTodoBacklog($_SESSION['user_id']);
+                $progress = getUserTodoProgress($_SESSION['user_id']);
+                $done = getUserTodoDone($_SESSION['user_id']);
             }
         ?>
     
         </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4"></div>
-                    <div class="col-lg-4">
-                    <a href="../add_todo/add_todo_view.php" class="btn btn-warning" role="button">&plus;</a>
+                    <div class="col-lg-3">
+                        <h3>BACKLOG</h3>
                         <?php 
-                        while ($row = $result->fetch_assoc())
+                        while ($row = $backlog->fetch_assoc())
                         {
                         ?>
-                        <div class="card bg-warning" style="width:400px">
+                            <div class="card bg-warning" style="width:350px">
                                 <div class="card-body">
+                                    <h2><a class="text-danger" href="../delete/delete_todo.php?todoid=<?php echo $row['todo_id'] ?>">&times;</a></h2>
                                     <h2 class="card-title text-center">
                                     <a href="../edit_todo/edit_todo_view.php?todoid=<?php echo $row['todo_id']; ?>"> <?php echo $row['todo_title']; ?></a>
                                     </h2>
-                                    <p class="card-text text-center"><h4 class="text-center"><?php echo $row['todo_desc']; ?></h4><br></p>
-                                    <p class="card-text text-center">Status: <?php echo $row['todo_status'] ?>
-                                    <a href="../delete/delete_todo.php?todoid=<?php echo $row['todo_id'] ?>">Delete</a> </p>
+                                    <p class="card-text text-center"><h4 class="text-center"><?php echo $row['todo_desc']; ?></h4><br></p>      
+                                    <div class="btn-group btn-group-justified">
+                                        <a href="../set_task/set_task.php?taskto=progress&id=<?php echo $row['todo_id'] ?>" class="btn btn-primary">>></a>
+                                    </div>              
                                 </div>
                             </div>
                         <?php
                         }
                         ?>
                     </div>
+
+                    <div class="col-lg-1"></div>
+
+                    <div class="col-lg-3">
+                    <h3>IN-PROGRESS</h3>
+                    <?php  
+                        while ($row = $progress->fetch_assoc())
+                        {
+                        ?>
+                            <div class="card bg-info" style="width:350px">
+                                <div class="card-body">
+                                    <h2><a class="text-danger" href="../delete/delete_todo.php?todoid=<?php echo $row['todo_id'] ?>">&times;</a></h2>
+                                    <h2 class="card-title text-center">
+                                    <a href="../edit_todo/edit_todo_view.php?todoid=<?php echo $row['todo_id']; ?>"> <?php echo $row['todo_title']; ?></a>        
+                                    </h2>
+                                    <p class="card-text text-center"><h4 class="text-center"><?php echo $row['todo_desc']; ?></h4><br></p>  
+                                    <div class="btn-group btn-group-justified">
+                                        <a href="../set_task/set_task.php?taskto=backlog&id=<?php echo $row['todo_id'] ?>" class="btn btn-primary"><<</a>
+                                        <a href="../set_task/set_task.php?taskto=done&id=<?php echo $row['todo_id'] ?>" class="btn btn-primary">>></a>
+                                    </div>                                                                        
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>  
+                    </div>
+
+                    <div class="col-lg-1"></div>
+
+                    <div class="col-lg-3">
+                    <h3>DONE</h3>
+                    <?php  
+                        while ($row = $done->fetch_assoc())
+                        {
+                        ?>
+                            <div class="card bg-success" style="width:350px">
+                                <div class="card-body">
+                                    <h2><a class="text-danger" href="../delete/delete_todo.php?todoid=<?php echo $row['todo_id'] ?>">&times;</a></h2>
+                                    <h2 class="card-title text-center">
+                                    <a href="../edit_todo/edit_todo_view.php?todoid=<?php echo $row['todo_id']; ?>"> <?php echo $row['todo_title']; ?></a>
+                                    </h2>
+                                    <p class="card-text text-center"><h4 class="text-center"><?php echo $row['todo_desc']; ?></h4><br></p>
+                                    <div class="btn-group btn-group-justified">
+                                        <a href="../set_task/set_task.php?taskto=progress&id=<?php echo $row['todo_id'] ?>" class="btn btn-primary"><<</a>
+                                    </div>  
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?> 
                     </div>
                 </div>
             </div>
+        </div>
                 
     </body>
 </html>

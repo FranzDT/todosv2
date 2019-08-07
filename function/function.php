@@ -161,4 +161,64 @@
             return false;
         }
     }
+
+    function getUserTodoBacklog($user_id)
+    {
+        $sql = getUserTodoBacklogQuery($user_id);
+        // die($sql);
+        $result = $GLOBALS['conn']->query($sql);
+        return $result;
+    }
+
+    function getUserTodoProgress($user_id)
+    {
+        $sql = getUserTodoProgressQuery($user_id);
+        // die($sql);
+        $result = $GLOBALS['conn']->query($sql);
+        return $result;
+    }
+
+    function getUserTodoDone($user_id)
+    {
+        $sql = getUserTodoDoneQuery($user_id);
+        // die($sql);
+        $result = $GLOBALS['conn']->query($sql);
+        return $result;
+    }
+    function setTodoProgress($todo_id)
+    {
+        $sql = setTodoProgressQuery($todo_id);
+        if ($GLOBALS['conn'] === TRUE)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    function setTodoDone($todo_id)
+    {
+        $sql = setTodoDoneQuery($todo_id);
+        if ($GLOBALS['conn'] === TRUE)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    function setTodoBacklog($todo_id)
+    {
+        $sql = setTodoBacklogQuery($todo_id);
+        if ($GLOBALS['conn'] === TRUE)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 ?>

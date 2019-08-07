@@ -1,6 +1,3 @@
-<?php
-    
-?>
 <html>
     <head>
         <title>Add Todo</title>
@@ -37,7 +34,7 @@
                     </div>
                     <div class="form-group">
                         <div class="control-label col-md-4">
-                            <button type="submit" class="btn btn-primary" > ADD</button>
+                            <button type="submit" class="btn btn-primary">ADD</button>
                         </div>
                     </div>                    
                 </form> 

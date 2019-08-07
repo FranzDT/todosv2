@@ -97,4 +97,40 @@
                 $sql = "DELETE FROM todo WHERE todo_id = $todo_id";
                 return $sql;
         }
+        function getUserTodoBacklogQuery($user_id)
+        {       
+                $sql = "SELECT * FROM todo WHERE user_id = $user_id AND todo_status='backlog'";       
+                return $sql;
+        }
+        function getUserTodoProgressQuery($user_id)
+        {       
+                $sql = "SELECT * FROM todo WHERE user_id = $user_id AND todo_status='progress'";       
+                return $sql;
+        }
+        function getUserTodoDoneQuery($user_id)
+        {       
+                $sql = "SELECT * FROM todo WHERE user_id = $user_id AND todo_status='done'";       
+                return $sql;
+        }
+        function setTodoProgressQuery($todo_id)
+        {
+                $sql = "UPDATE todo
+                        SET todo_status = 'progress'
+                        WHERE todo_id= $todo_id";
+                return $sql;
+        }
+        function setTodoDoneQuery($todo_id)
+        {
+                $sql = "UPDATE todo
+                        SET todo_status = 'done'
+                        WHERE todo_id= $todo_id";
+                return $sql;
+        }
+        function setTodoBacklogQuery($todo_id)
+        {
+                $sql = "UPDATE todo
+                        SET todo_status = 'backlog'
+                        WHERE todo_id= $todo_id";
+                return $sql;
+        }
 ?>
