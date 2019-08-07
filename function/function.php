@@ -188,7 +188,7 @@
     function setTodoProgress($todo_id)
     {
         $sql = setTodoProgressQuery($todo_id);
-        if ($GLOBALS['conn'] === TRUE)
+        if ($GLOBALS['conn']->query($sql) === TRUE)
         {
             return true;
         }
@@ -200,7 +200,7 @@
     function setTodoDone($todo_id)
     {
         $sql = setTodoDoneQuery($todo_id);
-        if ($GLOBALS['conn'] === TRUE)
+        if ($GLOBALS['conn']->query($sql) === TRUE)
         {
             return true;
         }
@@ -212,7 +212,7 @@
     function setTodoBacklog($todo_id)
     {
         $sql = setTodoBacklogQuery($todo_id);
-        if ($GLOBALS['conn'] === TRUE)
+        if ($GLOBALS['conn']->query($sql) === TRUE)
         {
             return true;
         }
