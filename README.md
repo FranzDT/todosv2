@@ -20,14 +20,19 @@ ___
 
 ## *Add Todo*
 • The user can add tasks by clicking the plus icon
+
 • Then the user will be asked for the title and description of the task.
+
 • Newly added tasks gets the backlog status.
 ![](res/plusicon.png)
 ![](res/addtodo.png)
 ## *Todo Status*
 • Backlog - tasks that are currently on standby.
+
 • In Progress - tasks that are currently in progress
+
 • Done - tasks that are done.
+
 • Update status by clicking on the arrow at the bottom of each todo card.
 ![](res/taskstatus.png)
 ![](res/updatestatus.png)
