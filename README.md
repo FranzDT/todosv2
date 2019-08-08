@@ -2,9 +2,8 @@
 >Todo app is used for creating tasks for the user. Each todo status are categorized by the following: backlog, in progress and done.
 
 ## **ERD**
-___
 ![](res/ERD.png)
-
+____
 # **App Process - End users**
 ## *Register*
 •To use this app you need to register first, please remember your password as this version doesn't support password edit.
