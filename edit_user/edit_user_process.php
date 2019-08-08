@@ -6,7 +6,8 @@
     $username = $_POST['username'];
     $uname = $_POST['uname'];
 
-    if($username == $uname){
+    if($username == $uname)
+    {
         if (editUser($user_id, $first_name, $last_name, $username))
         {
             header("Location: ../admin/admin_view.php?edituser=yes");

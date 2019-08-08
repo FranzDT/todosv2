@@ -6,6 +6,7 @@
             echo "Username is taken <br>";
         }
     }
+    
     if (isset($_SESSION['user_role_id']))
     {
         if ($_SESSION['user_role_id'] == 100)

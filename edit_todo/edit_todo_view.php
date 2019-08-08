@@ -2,6 +2,7 @@
     require "../function/function.php";
     $id = $_GET['todoid'];
     $result = getTodo($id);
+    
     while ($row = $result->fetch_assoc())
     {
         $title = $row['todo_title'];

@@ -4,6 +4,7 @@
     $input_type = $_GET['input_type'] ?? "uname";
     $username = $_GET['username'] ?? "";
     $passwordcheck = $_GET['passwordcheck'] ?? 1;
+
     if (isset($_GET['username']))
     {
         $type = "password";   
@@ -31,6 +32,7 @@
             echo "Not a User<br>";
         }
     }
+
     if (isset($_SESSION['user_role_id']))
     {
         if ($_SESSION['user_role_id'] == 100)
@@ -93,12 +95,15 @@
         <?php
                         $label = "Password";
                         $input_type = "password";
-                    }else
+                    }
+                    else
                     {
                         $label = "Password";
                         $input_type = "password";
                     }
-                }else{
+                }
+                else
+                {
                     echo "Not a User<br>";
                 }
             }

@@ -177,7 +177,7 @@
                         while ($row = $done->fetch_assoc())
                         {
                         ?>
-                            <div class="card bg-success" style="width:350px">
+                            <div class="card bg-success" style="width:350px ">
                                 <div class="card-body">
                                     <h2><a class="text-danger" href="../delete/delete_todo.php?todoid=<?php echo $row['todo_id'] ?>">&times;</a></h2>
                                     <h2 class="card-title text-center">

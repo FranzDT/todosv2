@@ -60,7 +60,8 @@
                             <th><?php echo $row['last_name']; ?></th>
                             <th><?php echo $row['username']; ?></th>
                             <?php
-                                if ($row['last_signin'] != NULL){
+                                if ($row['last_signin'] != NULL)
+                                {
                             ?>
                                     <th><?php echo date("F j, Y",strtotime($row['last_signin'])); ?></th>
                             <?php
@@ -75,7 +76,8 @@
                             <th>
                                 <a href="../user/user_view.php?admingetuser=<?php echo $row['user_id']; ?>">Todo</a> | 
                                 <?php
-                                    if ($row['user_role_id'] == 200){
+                                    if ($row['user_role_id'] == 200)
+                                    {
                                 ?>
                                         <a href="../delete/delete_user.php?id=<?php echo $row['user_id'] ?>">Delete</a>
                                 <?php

@@ -134,6 +134,7 @@
             return false;
         }
     }
+    
     function deleteUser($id)
     {   
         $deletetodo = "DELETE FROM todo WHERE user_id = $id";
@@ -148,6 +149,7 @@
             return false;
         }
     }
+
     function deleteTodo($id)
     {
         $sql = deleteTodoQuery($id);
@@ -184,6 +186,7 @@
         $result = $GLOBALS['conn']->query($sql);
         return $result;
     }
+
     function setTodoProgress($todo_id)
     {
         $sql = setTodoProgressQuery($todo_id);
@@ -196,6 +199,7 @@
             return false;
         }
     }
+    
     function setTodoDone($todo_id)
     {
         $sql = setTodoDoneQuery($todo_id);
@@ -208,6 +212,7 @@
             return false;
         }
     }
+
     function setTodoBacklog($todo_id)
     {
         $sql = setTodoBacklogQuery($todo_id);

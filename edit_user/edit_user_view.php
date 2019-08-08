@@ -1,21 +1,23 @@
 <?php
     require "../function/function.php";
+    $user_id = $_GET['userid'];
+    $result = getUserDetail($user_id);
+
     if (!(isset($_SESSION['user_id'])))
     {
         header("Location: ../index.php");
-    }
-    $user_id = $_GET['userid'];
-    $result = getUserDetail($user_id);
-    while ($row = $result->fetch_assoc())
-    {
-        $firstname = $row['first_name'];
-        $lastname = $row['last_name'];
-        $username = $row['username'];
     }
 
     if (isset($_GET['userused']))
     {
             echo "Username is already taken";
+    }
+
+    while ($row = $result->fetch_assoc())
+    {
+        $firstname = $row['first_name'];
+        $lastname = $row['last_name'];
+        $username = $row['username'];
     }
 ?>
 <html>

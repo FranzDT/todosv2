@@ -6,6 +6,7 @@
                         WHERE username = '$username'";      
                 return $sql;
         }
+
         function userRegQuery($first_name, $last_name, $username, $password, $role)
         {     
                 $sql = "INSERT INTO users(first_name, last_name, username, password, user_role_id, date_created)
@@ -17,6 +18,7 @@
                         , (SELECT CURDATE()))";
                 return $sql;
         }
+
         function passwordQuery($username, $password)
         {
                 $sql = "SELECT password
@@ -32,13 +34,15 @@
                         WHERE username = '$username'";
                 return $sql;
         }
+
         function signInQuery($username)
         {
                 $sql = "UPDATE users 
                         SET last_signin = (SELECT CURDATE())
                         WHERE username = '$username'";
                 return $sql;
-        }    
+        }   
+
         function addTodoQuery($user_id, $todo_title, $todo_desc)
         {
                 $sql = "INSERT INTO todo (todo_title, todo_desc, todo_status, user_id, date_created)
@@ -49,6 +53,7 @@
                         , (SELECT CURDATE()))";        
                 return $sql;
         }
+
         function showUserTodo($user_id) 
         {
                 $sql = "SELECT *
@@ -56,30 +61,36 @@
                         WHERE user_id = $user_id";                      
                 return $sql;
         }
+
         function getUserTodoQuery($user_id)
         {       
                 $sql = "SELECT * FROM todo WHERE user_id = $user_id";       
                 return $sql;
         }
+
         function getTodoQuery($todo_id)
         {       
                 $sql = "SELECT todo_title, todo_desc FROM todo WHERE todo_id = $todo_id";
                 return $sql;
         }
+
         function editTodoQuery($todo_id, $todo_title, $todo_desc)
         {       
                 $sql = "UPDATE todo SET todo_title='$todo_title', todo_desc='$todo_desc' WHERE todo_id = $todo_id";
                 return $sql;
         }
+
         function getUsers(){
                 $sql = "SELECT * FROM users";
                 return $sql;
         }
+
         function adminGetUserQuery($user_id)
         {
                 $sql = "SELECT * FROM users WHERE user_id = $user_id";
                 return $sql;
         }
+
         function editUserQuery($user_id, $first_name, $last_name, $username)
         {
                 $sql = "UPDATE users
@@ -87,26 +98,31 @@
                         WHERE user_id = $user_id";
                 return $sql;
         }
+
         function deleteUserQuery($id)
         {
                 $sql = "DELETE FROM users WHERE user_id = $id";
                 return $sql;
         }
+
         function deleteTodoQuery($todo_id)
         {
                 $sql = "DELETE FROM todo WHERE todo_id = $todo_id";
                 return $sql;
         }
+
         function getUserTodoBacklogQuery($user_id)
         {       
                 $sql = "SELECT * FROM todo WHERE user_id = $user_id AND todo_status='backlog'";       
                 return $sql;
         }
+
         function getUserTodoProgressQuery($user_id)
         {       
                 $sql = "SELECT * FROM todo WHERE user_id = $user_id AND todo_status='progress'";       
                 return $sql;
         }
+
         function getUserTodoDoneQuery($user_id)
         {       
                 $sql = "SELECT * FROM todo WHERE user_id = $user_id AND todo_status='done'";       
@@ -119,6 +135,7 @@
                         WHERE todo_id= $todo_id";
                 return $sql;
         }
+
         function setTodoDoneQuery($todo_id)
         {
                 $sql = "UPDATE todo
@@ -126,6 +143,7 @@
                         WHERE todo_id= $todo_id";
                 return $sql;
         }
+        
         function setTodoBacklogQuery($todo_id)
         {
                 $sql = "UPDATE todo
